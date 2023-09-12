@@ -1,7 +1,9 @@
 export class BowlingGame {
-  private rolls: number[] = [];
+  private rolls: number[];
 
-  constructor() {}
+  constructor() {
+    this.rolls = [];
+  }
 
   private calculateStrikeScore(rollIndex: number): number {
     return 10 + this.rolls[rollIndex + 1] + this.rolls[rollIndex + 2];
@@ -23,11 +25,11 @@ export class BowlingGame {
     return this.rolls[rollIndex] + this.rolls[rollIndex + 1] === 10;
   }
 
-  roll(pins: number): void {
+  public roll(pins: number): void {
     this.rolls.push(pins);
   }
 
-  score(): number {
+  public score(): number {
     const FRAMES = 10;
     let totalScore = 0;
     let rollIndex = 0;
